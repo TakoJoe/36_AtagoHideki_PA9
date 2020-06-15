@@ -58,7 +58,23 @@ namespace WindowsFormsApp1
                     
                 }
             }
-           
+            else if (rb_Ringgit.Checked)
+            {
+                try
+                {
+                    decimal amount = System.Convert.ToDecimal(txt_Amount.Text);
+                    decimal converted_amount = amount * 3.01M;
+                    txt_Converted.Text = "$" + converted_amount.ToString();
+                    
+                }
+                catch (FormatException)
+                {
+                    txt_Amount.Clear();
+                    txt_Converted.Clear();
+                    
+                }
+            }
+
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
@@ -73,6 +89,11 @@ namespace WindowsFormsApp1
         }
 
         private void rb_Yen_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rb_Ringgit_CheckedChanged(object sender, EventArgs e)
         {
 
         }
